@@ -1,8 +1,11 @@
-import Image from "next/image";
+'use client';
+
+import { usePOS } from './context/POSContext';
+import LoginForm from './components/LoginForm';
+import Dashboard from './components/Dashboard';
 
 export default function Home() {
-  return (
-    <div>home
-    </div>
-  );
+  const { currentCashier } = usePOS();
+
+  return currentCashier ? <Dashboard /> : <LoginForm />;
 }
